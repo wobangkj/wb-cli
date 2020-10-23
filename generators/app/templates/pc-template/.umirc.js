@@ -19,7 +19,7 @@ export default defineConfig({
     },
   ],
   favicon: '/images/favicon.png',
-  title: 'pc-template',
+  title: <%= title %>,
   hash: true,
   proxy: proxy['dev'],
   history: { type: 'hash' },

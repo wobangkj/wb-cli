@@ -1,6 +1,6 @@
 const path = require('path');
 const config = {
-  projectName: 'taro-template',
+  projectName:  <%= title %>,
   date: '2020-4-28',
   designWidth: 750,
   deviceRatio: {
