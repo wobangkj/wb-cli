@@ -5,6 +5,11 @@ const yosay = require("yosay");
 const path = require("path");
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+    this.option("skip-install");
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(`欢迎使用 ${chalk.red("generator-wb-cli")} generator!`));
@@ -143,6 +148,8 @@ module.exports = class extends Generator {
       ]);
     }
 
-    this.spawnCommandSync("cnpm", ["i"]);
+    if (!this.options["skip-install"]) {
+      this.spawnCommandSync("cnpm", ["i"]);
+    }
   }
 };
