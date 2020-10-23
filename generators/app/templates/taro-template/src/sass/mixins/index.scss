@@ -1,0 +1,37 @@
+/**
+*
+* 一些通用的函数譬如文字溢出等
+*
+*/
+
+/**
+ * 单行文字溢出...
+ */
+@mixin text-ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/**
+ * 多行文字溢出...
+ */
+@mixin multi-text-ellipsis($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
+/**
+ * 元素居中定位
+ */
+@mixin absolute-center($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

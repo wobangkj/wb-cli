@@ -1,0 +1,100 @@
+@import '../../mixins/index.scss';
+@import '../../mixins/variable.scss';
+.coupon {
+  margin-top: 5px;
+  &--expired {
+    opacity: $opacity-expired;
+    filter: saturate(0%);
+  }
+  &__item {
+    display: flex;
+    margin: 25px;
+    background-color: $color-bg;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 266px;
+    height: 200px;
+    margin-right: 32px;
+    color: $color-text-title;
+    background: $color-bg-light;
+    border-radius: 20px;
+  }
+  &__unit {
+    margin-top: 19px;
+    font-size: $font-size-base;
+  }
+  &__discount {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-xxl;
+  }
+  &__condition {
+    margin-top: 18px;
+    font-size: $font-size-sm;
+  }
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 27px 0 30px 0;
+  }
+  &__name {
+    @include text-ellipsis;
+    color: $color-black;
+    font-size: $font-size-base;
+  }
+  &__date {
+    color: $color-text-base;
+    font-size: $font-size-sm;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 158px;
+    height: 50px;
+    color: $color-white;
+    font-size: $font-size-sm;
+    background: $color-text-title;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 0px $color-shadow;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  background: $color-bg-light-red;
+}
+.tab {
+  display: flex;
+  width: 750px;
+  background: $color-bg;
+  border: 1px solid $color-border-base;
+  &__item {
+    position: relative;
+    flex: 1;
+    padding: 37px 0;
+    color: $color-black;
+    font-size: $font-size-base;
+    text-align: center;
+    &--active {
+      color: $color-success;
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 75px;
+        height: 5px;
+        margin: auto;
+        background: $color-bg-orange;
+        border-radius: 3px;
+        content: '';
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+/*
+* 
+* 样式编写必须使用BEM规范，方便团队维护以及统一
+* BEM规范 http://getbem.com/introduction/
+* 当然特殊情况特殊处理 比如第113行代码则由于设计
+* 的一点点出入 可以直接嵌套一个完整的className
+*/
+@import '../mixins/variable.scss';
+
+.wrapper {
+  background: $color-bg;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 318px;
+}
+.user {
+  position: relative;
+  z-index: 1;
+  &__info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    font-size: $font-size-xxl;
+  }
+  &__detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 40px;
+  }
+  &__setting {
+    position: relative;
+    z-index: 2;
+    width: 54px;
+    height: 54px;
+  }
+  &__auth {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100%;
+    background-color: $color-bg-red;
+    opacity: 0;
+  }
+  &__head {
+    width: 139px;
+    height: 139px;
+    margin-right: 40px;
+    border: 1px solid $color-border-base;
+    border-radius: 50%;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 8px 14px;
+    color: $color-text-title;
+    font-size: $font-size-sm;
+    background: $color-bg;
+    border-radius: 7px;
+  }
+}
+.nav {
+  position: relative;
+  height: 258px;
+  margin: 0 30px;
+  margin-top: 5px;
+  margin-bottom: 45px;
+  background: $color-bg;
+  border-radius: 20px;
+  box-shadow: 0px 3px 15px 0px $color-shadow-light;
+  &__number {
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 27px;
+    color: $color-text-title;
+    font-size: $font-size-xl;
+    text-align: center;
+    background: $color-bg;
+    border: 3px solid $color-border-orange;
+    border-radius: 10px 10px 10px 0px;
+  }
+  &__title {
+    margin: 0 35px;
+    padding: 30px 0;
+    color: $color-black;
+    font-size: 30px;
+    border-bottom: 1px solid $color-border-gray;
+  }
+  &__box {
+    display: flex;
+    height: 161px;
+    padding-top: 8px;
+    &--service {
+      height: auto;
+      padding-top: 35px;
+      .nav__pic {
+        height: 60px;
+        margin-bottom: 22px;
+      }
+    }
+  }
+  &__contact {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-gray;
+    font-size: $font-size-sm;
+    &--no-flex {
+      flex: none;
+      margin: 0 39px;
+    }
+  }
+  &__pic {
+    width: 60px;
+    height: 50px;
+    margin-bottom: 23px;
+  }
+}

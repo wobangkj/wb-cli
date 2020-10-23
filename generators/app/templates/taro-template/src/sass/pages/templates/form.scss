@@ -1,0 +1,70 @@
+/*
+* 
+* 样式编写必须使用BEM规范，方便团队维护以及统一
+* BEM规范 http://getbem.com/introduction/
+*/
+
+@import '~taro-ui/dist/style/components/image-picker.scss';
+@import '~taro-ui/dist/style/components/icon.scss';
+@import '../../mixins/variable.scss';
+// Block
+.template {
+  margin: 0 30px;
+  background: $color-bg;
+  // Element
+  &__item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin: 30px 0;
+    &--block {
+      display: block;
+    }
+  }
+  &__poster {
+    width: 581px;
+    height: 1034px;
+    margin: 0 auto;
+  }
+  // Element
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 388px;
+    height: 70px;
+    color: $color-warning;
+    font-size: $font-size-base;
+    background: $color-bg;
+    border-radius: 35px;
+    box-shadow: 0px 5px 10px 0px $color-shadow-light;
+    // Modifier
+    &--primary {
+      color: $color-white;
+      background: $color-bg-orange-linear;
+      box-shadow: 0px 5px 10px 0px $color-shadow-light;
+    }
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+  // Element
+  &__name {
+    padding-right: 10px;
+    color: $color-text-paragraph;
+    font-size: $font-size-base;
+  }
+  // Element
+  &__input {
+    flex: 1;
+    height: 70px;
+    padding-left: 10px;
+    border: 1px solid $color-border-light;
+    border-radius: 15px;
+    // Modifier
+    &--placeholder {
+      color: $color-input-place;
+      font-size: $font-size-base;
+    }
+  }
+}

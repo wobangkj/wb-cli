@@ -1,0 +1,62 @@
+/*
+* 
+* 样式编写必须使用BEM规范，方便团队维护以及统一
+* BEM规范 http://getbem.com/introduction/
+*/
+@import '../mixins/index.scss';
+@import '../mixins/variable.scss';
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  width: 100vw;
+  height: 100vh;
+  background: $color-bg-blur;
+  &__body {
+    @include absolute-center;
+    text-align: center;
+    background: $color-bg;
+    border-radius: 20px;
+  }
+  &__title {
+    padding-top: 53px;
+    color: $color-text-title;
+    font-size: $font-size-xxl;
+  }
+  &__cont {
+    padding-top: 45px;
+    padding-bottom: 41px;
+    color: $color-text-paragraph;
+    font-size: $font-size-base;
+    line-height: $line-height-zh;
+  }
+  &__opera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 47px;
+    padding-bottom: 42px;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 68px;
+    color: $color-text-title;
+    font-size: $font-size-base;
+    border: 2px solid $color-border-orange;
+    border-radius: 34px;
+    &--active {
+      margin-left: 20px;
+      color: $color-white;
+      background: $color-bg-orange;
+      border: none;
+      border-radius: 34px;
+      box-shadow: 0px 5px 15px 0px $color-shadow-light;
+    }
+  }
+}

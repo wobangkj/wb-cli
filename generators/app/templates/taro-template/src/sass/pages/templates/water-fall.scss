@@ -1,0 +1,67 @@
+@import '../../mixins/index.scss';
+@import '../../mixins/variable.scss';
+.wrapper {
+  min-height: 100vh;
+  padding-bottom: 110px;
+  background-color: $color-bg-light;
+}
+.video {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__item {
+    position: absolute;
+    box-sizing: border-box;
+    width: 350px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  &__pic {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  &__preview {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      content: '';
+    }
+  }
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+  }
+
+  &__desc {
+    padding-top: 25px;
+    padding-bottom: 30px;
+    background: $color-bg;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  &__title {
+    width: 300px;
+    height: 3em;
+    padding: 0 27px;
+    color: $color-black;
+    font-size: $font-size-base;
+    line-height: $line-height-zh;
+    @include multi-text-ellipsis;
+  }
+}

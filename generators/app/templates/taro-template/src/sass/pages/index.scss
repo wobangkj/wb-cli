@@ -1,0 +1,95 @@
+/*
+* 
+* 样式编写必须使用BEM规范，方便团队维护以及统一
+* BEM规范 http://getbem.com/introduction/
+* 当然特殊情况特殊处理 比如第113行代码则由于设计
+* 的一点点出入 可以直接嵌套一个完整的className
+* ❗️目前所有的
+*/
+@import '../mixins/variable.scss';
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  text-align: center;
+  background-color: $color-bg-light;
+  &-title {
+    margin-top: 24px;
+    color: $color-black;
+    font-size: $font-size-xxl;
+    text-align: center;
+  }
+}
+
+.module-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 72px;
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    width: 90%;
+    height: 144px;
+    margin-bottom: 40px;
+    padding: 0 30px;
+    background: $color-bg;
+    border-radius: 10px;
+    box-shadow: 0 8px 40px 0 $color-shadow-black;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    color: $color-link;
+    text-align: center;
+    border: 5px solid $color-border-blue;
+    border-radius: 50%;
+
+    .img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    margin-left: 24px;
+    text-align: left;
+    .title {
+      color: $color-gray;
+      font-weight: bold;
+      font-size: $font-size-base;
+    }
+
+    .content {
+      color: $color-gray;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    color: $color-white;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 4px 10px 30px 0 $color-shadow-black-light;
+  }
+  &__right {
+    width: 15px;
+    height: 15px;
+  }
+}

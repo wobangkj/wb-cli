@@ -1,0 +1,105 @@
+{
+  "name": "taro-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small program template",
+  "templateInfo": {
+    "name": "default",
+    "typescript": false,
+    "css": "sass"
+  },
+  "scripts": {
+    "build:weapp": "taro build --type weapp",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "assets": "node ./scripts/assets.js",
+    "commit": "node ./node_modules/cz-customizable/standalone.js",
+    "assets:pwd": "node ./scripts/assets.js --pwd",
+    "release": "standard-version",
+    "lint": "lint-staged"
+  },
+  "author": "",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "dependencies": {
+    "@tarojs/components": "2.2.6",
+    "@tarojs/components-qa": "2.2.6",
+    "@tarojs/router": "2.2.6",
+    "@tarojs/taro": "2.2.6",
+    "@tarojs/taro-alipay": "2.2.6",
+    "@tarojs/taro-h5": "2.2.6",
+    "@tarojs/taro-qq": "2.2.6",
+    "@tarojs/taro-quickapp": "2.2.6",
+    "@tarojs/taro-rn": "2.2.6",
+    "@tarojs/taro-swan": "2.2.6",
+    "@tarojs/taro-tt": "2.2.6",
+    "@tarojs/taro-weapp": "2.2.6",
+    "@vant/weapp": "^1.3.2",
+    "babel-runtime": "^6.26.0",
+    "dayjs": "^1.8.25",
+    "nerv-devtools": "^1.5.7",
+    "nervjs": "^1.5.7",
+    "prop-types": "^15.7.2",
+    "regenerator-runtime": "0.11.1",
+    "runes": "^0.4.3",
+    "taro-ui": "^2.3.4",
+    "wx-touch-event": "^1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@tarojs/mini-runner": "2.2.6",
+    "@tarojs/webpack-runner": "2.2.6",
+    "@types/react": "^16.4.6",
+    "@types/webpack-env": "^1.13.6",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "commander": "^5.1.0",
+    "commitizen": "^4.0.3",
+    "commitlint-config-cz": "^0.13.1",
+    "cz-conventional-changelog": "^3.1.0",
+    "cz-customizable": "^6.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-taro": "2.2.6",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-taro": "2.2.6",
+    "husky": "^1.3.1",
+    "lint-staged": "^10.0.8",
+    "node-ssh": "^8.0.0",
+    "postcss-bem-linter": "^3.3.0",
+    "prettier": "^1.19.1",
+    "standard-version": "^7.1.0",
+    "stylelint": "9.3.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-taro-rn": "2.2.6",
+    "stylelint-scss": "^3.17.2",
+    "stylelint-selector-bem-pattern": "^2.1.0",
+    "stylelint-taro-rn": "2.2.6"
+  },
+  "lint-staged": {
+    "**/*.scss": "stylelint --syntax scss",
+    "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx ",
+    "**/*.{js,ts,tsx,json,jsx,scss}": [
+      "node ./scripts/lint-prettier.js",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint"
+    }
+  }
+}
