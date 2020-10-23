@@ -1,0 +1,79 @@
+/**
+ * 默认变量
+ */
+
+@dpr: 2;
+
+/* 不同类型按钮 tab 颜色 */
+@color-success: #ff4e18;
+@color-error: #ff4949;
+@color-warning: #f77f32;
+@color-info: #78a4fa;
+
+/* input输入框等placeholder颜色 */
+@color-input-place: #b2b2b2;
+
+/* 通用颜色 */
+@color-white: #fff;
+@color-gray: #6a6a77;
+@color-black: #000;
+
+/* Text Color */
+@color-text-base: #999; // 文字的基本色
+@color-text-title: #ff2a3f; // 文章标题
+@color-text-paragraph: #353535; // 文章段落
+
+/* Link */
+@color-link: #6190e8; //默认跳转链接颜色
+@color-link-disabled: #bfbfbf; //禁用链接颜色
+
+/* 阴影 */
+@color-shadow: rgba(255, 42, 63, 0.37);
+@color-shadow-light: rgba(255, 189, 126, 0.5);
+@color-shadow-black: rgba(0, 0, 0, 0.04);
+@color-shadow-black-light: rgba(120, 164, 250, 0.3);
+
+/* 背景色 */
+@color-bg: #fff;
+@color-bg-light: #f7f7f7;
+@color-bg-blur: rgba(0, 0, 0, 0.65);
+@color-bg-red: red;
+@color-bg-light-red: #ffdedd;
+@color-bg-orange: rgba(255, 172, 147, 1);
+@color-bg-orange-linear: linear-gradient(
+  -55deg,
+  rgba(255, 183, 69, 1) 0%,
+  rgba(254, 159, 117, 1) 100%
+);
+
+/* 边框颜色 */
+@color-border-base: rgba(238, 238, 238, 1);
+@color-border-light: rgba(229, 229, 229, 1);
+@color-border-orange: rgba(255, 136, 57, 1);
+@color-border-split: tint(@color-border-base, 20%); // 分割线
+@color-border-gray: #ccc;
+@color-border-blue: rgba(120, 164, 250, 0.16);
+
+/* 图标颜色 */
+@color-icon-base: #ccc;
+
+/* Border Radius */
+@border-radius-circle: 50%;
+
+/* 透明度 */
+@opacity-expired: 0.75; // Button 等组件渲染列表过期
+@opacity-active: 0.6; // Button 等组件点击态额透明度
+@opacity-disabled: 0.3; // Button 等组件禁用态的透明度
+
+/* Font */
+@font-size-xs: 10px * @dpr; // 非常用字号，用于标签
+@font-size-sm: 12px * @dpr; // 用于辅助信息
+@font-size-base: 14px * @dpr; // 常用字号
+@font-size-lg: 16px * @dpr; // 常规标题
+@font-size-xl: 18px * @dpr; // 大标题
+@font-size-xxl: 20px * @dpr; // 用于大号的数字
+
+/* Line Height */
+@line-height-base: 1; // 单行
+@line-height-en: 1.3; // 英文多行
+@line-height-zh: 1.5; // 中文多行
