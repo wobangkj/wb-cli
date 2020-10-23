@@ -10,7 +10,7 @@ const proSettings = {
   menu: {
     locale: true,
   },
-  title: <%= title %>,
+  title: "<%= title %>",
   pwa: false,
   iconfontUrl: '',
 };

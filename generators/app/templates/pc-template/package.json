@@ -1,5 +1,5 @@
 {
-  "name": <%= title %>,
+  "name": "<%= title %>",
   "private": true,
   "scripts": {
     "assets": "node ./scripts/assets.js",

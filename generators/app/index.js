@@ -5,20 +5,9 @@ const yosay = require("yosay");
 const path = require("path");
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
-    this.log(this.options.appname);
-  }
-
   prompting() {
     // Have Yeoman greet the user.
-    this.log(
-      yosay(`欢迎使用 ${chalk.red("generator-wb-cli")} generator!，本项目已自动
-      根据项目类型添加相应项目
-      名后缀，可不比添加诸如
-    name-xcx，name-h5之
-    类项目名`)
-    );
+    this.log(yosay(`欢迎使用 ${chalk.red("generator-wb-cli")} generator!`));
 
     const prompts = [
       {
@@ -78,7 +67,6 @@ module.exports = class extends Generator {
         ...props,
         ...answers
       };
-      this.log(this.answers);
     });
   }
 
@@ -155,6 +143,6 @@ module.exports = class extends Generator {
       ]);
     }
 
-    // This.spawnCommandSync("cnpm", ["i"]);
+    this.spawnCommandSync("cnpm", ["i"]);
   }
 };

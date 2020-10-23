@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname":  <%= title %>,
+  "projectname":  "<%= title %>",
   "description": "A small program template",
   "appid": "wx07fec4a59efa1f30",
   "setting": {
