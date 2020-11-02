@@ -3,4 +3,5 @@ export default {
   'menu.curd': '一键CURD表单模板',
   'menu.protocol': '富文本编辑',
   'menu.setting': '后台设置',
+  'menu.welcome': 'Welcome',
 };
