@@ -1,9 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-param-reassign */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Card, Input, Select, Form, Upload, Button, message } from 'antd';
-import React, { useState } from 'react';
-import ProTable from '@ant-design/pro-table';
+import { Card, Form, message } from 'antd';
+import React from 'react';
 import Submitform from './components/Submitform';
 import { editPass } from './service';
 
@@ -13,7 +11,7 @@ const TableList = () => {
     <Card style={{ height: '80vh' }}>
       <Submitform
         form={form}
-        onSubmit={async (value) => {
+        onSubmit={async value => {
           const res = await editPass(value);
           if (res.status === 200) {
             message.success('修改成功');

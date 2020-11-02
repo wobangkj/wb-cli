@@ -35,7 +35,7 @@ export default defineConfig({
         {
           name: 'login',
           path: '/user/login',
-          component: './user/login',
+          component: './User/login',
         },
       ],
     },
@@ -50,19 +50,19 @@ export default defineConfig({
           routes: [
             {
               path: '/',
-              redirect: '/curd',
+              redirect: '/welcome',
+            },
+            {
+              name: 'welcome',
+              icon: 'user',
+              path: '/welcome',
+              component: './Welcome',
             },
             {
               name: 'curd',
               icon: 'table',
               path: '/curd',
               component: './Curd',
-            },
-            {
-              name: 'list.table-list',
-              icon: 'table',
-              path: '/list',
-              component: './ListTableList',
             },
             {
               name: 'protocol',

@@ -61,14 +61,14 @@ const UploadFile = (props) => {
     }
   }
 
-  const [fileList, setFileList] = useState(files);
+  const [file, setFile] = useState(files);
   /**
    * 图片上传钩子
    *
    * @memberof ModalForm
    */
-  const beforeUpload = (file) => {
-    const isLt2M = file.size / 1024 / 1024 < 3;
+  const beforeUpload = (f) => {
+    const isLt2M = f.size / 1024 / 1024 < 3;
     if (!isLt2M) {
       message.error('图片大小不能超过2MB');
     }
@@ -81,7 +81,7 @@ const UploadFile = (props) => {
    */
   // eslint-disable-next-line no-shadow
   const handleChange = ({ fileList }) => {
-    setFileList(fileList);
+    setFile(fileList);
     // 设置form值
     props.form.setFieldsValue({ [props.name]: fileList });
   };
@@ -89,7 +89,7 @@ const UploadFile = (props) => {
   return (
     <Upload
       onChange={handleChange}
-      fileList={fileList}
+      fileList={file}
       withCredentials
       headers={{
         token: window.sessionStorage.getItem('_TOKEN'),
@@ -98,7 +98,7 @@ const UploadFile = (props) => {
       beforeUpload={beforeUpload}
       action={`${prefix}upload`}
     >
-      {fileList.length === 0 ? (
+      {file.length === 0 ? (
         <div>
           <PlusOutlined />
           上传
@@ -109,7 +109,48 @@ const UploadFile = (props) => {
 };
 
 /**
+ * 需要处理防抖节流问题，解决思路是将handleSearch 函数
+ * 提取到页面最顶层，使用lodash等解决，代码示例
+ *  函数组件外面
+ *  const handleSearch = lodash.debounce(async (searchText, setOptions) => {
+      // 接口请求
+      if (searchText) {
+        const adminId = sessionStorage.getItem('_USERID');
+        const role = parseInt(sessionStorage.getItem('_ROLE'), 10); // 0超管 1其它
+        const payload = { name: searchText, current: 1, pageSize: 99999999 };
+
+        if (role >= 1) {
+          payload.adminId = adminId;
+        }
+
+        const res = await props.request(payload);
+        if (res.status === 200) {
+          setOption(
+            res.data.map((item) => {
+              // eslint-disable-next-line no-param-reassign
+              item.value = item.name;
+              return item;
+            }),
+          );
+        }
+      } else {
+        setOption([]);
+      }
+    }, 1000);
+  函数组件
+    const CompleteInput = (props) => {
+        ...
+        <AutoComplete
+          value={value}
+          options={option}
+          onSelect={handleSelect}
+          onChange={handleChange}
+          onSearch={(e) => handleSearch(e, setOption)}
+          placeholder="请输入"
+        />
+      }
  * 搜索输入框
+ * 
  */
 const CompleteInput = (props) => {
   const [value, setValue] = useState(props.value);
@@ -170,7 +211,7 @@ const CompleteInput = (props) => {
       options={option}
       onSelect={handleSelect}
       onChange={handleChange}
-      onSearch={lodash.debounce(handleSearch, 150)}
+      onSearch={handleSearch}
       placeholder="请输入"
     />
   );

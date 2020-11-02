@@ -84,6 +84,7 @@
     "@umijs/preset-ant-design-pro": "^1.2.0",
     "@umijs/preset-react": "^1.4.8",
     "@umijs/preset-ui": "^2.0.9",
+    "aliyun-oss-sign": "^0.0.5",
     "carlo": "^0.9.46",
     "chalk": "^4.0.0",
     "commander": "^5.1.0",

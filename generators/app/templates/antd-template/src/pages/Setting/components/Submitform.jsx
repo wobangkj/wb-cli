@@ -1,14 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
-import { Form, Input, Row, Col, Upload, Button } from 'antd';
+import { Form, Input, Row, Col, Button } from 'antd';
 
 const FormItem = Form.Item;
-const { TextArea } = Input;
-const formLayout = {
-  // labelCol: { span: 1 },
-  wrapperCol: { span: 3 },
-};
 const IntroForm = (props) => {
   const [formVals, setFormVals] = useState({
     username: props.values.username,
@@ -24,38 +17,32 @@ const IntroForm = (props) => {
   const [form] = Form.useForm();
   const renderContent = () => {
     return (
-      <Row
-        gutter={{
-          xs: 24,
-          sm: 16,
-          md: 20,
-        }}
-      >
-        <Col offset={6} span={14}>
+      <Row>
+        <Col span={24}>
           <FormItem
             rules={[{ required: true, message: '请输入账户名' }]}
             name="username"
             label="账户名"
           >
-            <Input style={{ width: '300px' }} placeholder="请输入账户名" disabled value="admin" />
+            <Input style={{ width: '350px' }} placeholder="请输入账户名" disabled value="admin" />
           </FormItem>
         </Col>
-        <Col offset={6} span={14}>
+        <Col span={24}>
           <FormItem
-            name="require"
+            name="password"
             label="原密码"
             rules={[{ required: true, message: '请输入旧密码' }]}
           >
-            <Input style={{ width: '300px' }} placeholder="请输入旧密码" />
+            <Input style={{ width: '350px' }} placeholder="请输入旧密码" />
           </FormItem>
         </Col>
-        <Col offset={6} span={14}>
+        <Col span={24}>
           <FormItem
             name="password"
             label="新密码"
             rules={[{ required: true, message: '请输入新密码' }]}
           >
-            <Input style={{ width: '300px' }} placeholder="请输入新密码" />
+            <Input style={{ width: '350px' }} placeholder="请输入新密码" />
           </FormItem>
         </Col>
       </Row>
@@ -63,14 +50,8 @@ const IntroForm = (props) => {
   };
   const renderBotton = () => {
     return (
-      <Row
-        gutter={{
-          xs: 24,
-          sm: 16,
-          md: 20,
-        }}
-      >
-        <Col offset={10}>
+      <Row>
+        <Col offset={3}>
           <FormItem>
             <Button
               type="primary"
@@ -92,7 +73,6 @@ const IntroForm = (props) => {
   };
   return (
     <Form
-      {...formLayout}
       form={form}
       initialValues={{
         username: formVals.username,

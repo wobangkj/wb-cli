@@ -17,6 +17,11 @@ const codeMessage = {
 
 export const prefix = '/api/'; // 接口请求前缀
 export const host = 'http://test.wobangkj.com/'; // 域名绝对路径 小程序富文本显示用
+export const accessId = ''; // 阿里云access_key_id
+export const accessKey = '';  // 阿里云access_key_secret
+export const aliossHost = 'https://demo.oss-cn-hangzhou.aliyuncs.com';  // 阿里云上传地址
+
+
 
 /**
  * 异常处理程序
