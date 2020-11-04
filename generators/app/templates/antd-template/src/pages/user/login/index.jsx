@@ -24,7 +24,7 @@ const Login = (props) => {
   const handleSubmit = (values) => {
     const { dispatch } = props;
     // 存储登录账户名前台展示
-    sessionStorage.setItem('_USERNAME', values.name);
+    sessionStorage.setItem('_USERNAME', values.username);
     dispatch({
       type: 'login/login',
       payload: { ...values },
@@ -38,7 +38,7 @@ const Login = (props) => {
           {status === 'error' && !submitting && <LoginMessage content="账户或密码错误" />}
 
           <UserName
-            name="name"
+            name="username"
             placeholder="请输入用户名！"
             rules={[
               {
@@ -48,7 +48,7 @@ const Login = (props) => {
             ]}
           />
           <Password
-            name="secret"
+            name="password"
             placeholder="请输入密码！"
             rules={[
               {

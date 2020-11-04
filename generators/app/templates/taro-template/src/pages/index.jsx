@@ -23,7 +23,7 @@ export default class Index extends Component {
       {
         title: '瀑布流',
         content: '绝对定位实现版本',
-        url: 'waterfall',
+        url: 'water-fall',
         icon: 'coupon.png',
       },
     ],

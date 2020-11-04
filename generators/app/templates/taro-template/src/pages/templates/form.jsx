@@ -73,9 +73,9 @@ export default class Index extends Component {
     }, 1000);
   }
 
-  onPullDownRefresh() {}
+  onPullDownRefresh() { }
 
-  onReachBottom() {}
+  onReachBottom() { }
 
   /**
    *
@@ -303,7 +303,7 @@ export default class Index extends Component {
             <View className="template__name">富文本</View>
           </View>
           <View className="template__item">
-            <Parse introduce={introduce} />
+            <Parse html={introduce} />
           </View>
           <View className="template__item">
             <View className="template__name">海报</View>

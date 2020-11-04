@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import dayjs from 'dayjs';
-import { getUserToken } from '@/utils/index';
+import { getUserToken } from '@/utils/token';
 import './utils/dpr'; // 多倍图
 import Index from './pages/index';
 import './sass/app.scss';

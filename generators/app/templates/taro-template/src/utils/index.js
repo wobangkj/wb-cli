@@ -1,19 +1,4 @@
 /* eslint-disable */
-import Taro from '@tarojs/taro';
-import { getToken } from '@/services/modules/user';
-
-/**
- * 获取用户token
- */
-export const getUserToken = async () => {
-  const res = await getToken({
-    id: Taro.getStorageSync('user_id'),
-  });
-  if (res.data.status === 200) {
-    Taro.setStorageSync('token', res.data.token);
-  }
-};
-
 /**
  *
  * @param param 将要转为URL参数字符串的对象
@@ -64,7 +49,7 @@ export const urlDecode = url =>
  */
 export function throttle(fn, interval = 150) {
   let canRun = true;
-  return function() {
+  return function () {
     if (!canRun) return;
     canRun = false;
     setTimeout(() => {
@@ -82,7 +67,7 @@ export function throttle(fn, interval = 150) {
 export const reclaimMemory = () => (target, name, descriptor) => {
   const original = descriptor.value;
   if (typeof original === 'function') {
-    descriptor.value = function(...args) {
+    descriptor.value = function (...args) {
       try {
         this.componentDidReceiveProps = null;
         this._createData = null;
@@ -101,7 +86,7 @@ export const reclaimMemory = () => (target, name, descriptor) => {
  * @param {string} name
  */
 export function toHump(name) {
-  return name.replace(/\_(\w)/g, function(all, letter) {
+  return name.replace(/\_(\w)/g, function (all, letter) {
     return letter.toUpperCase();
   });
 }
@@ -113,7 +98,7 @@ export function toHump(name) {
  */
 export function objectArrUnique(arr, key) {
   var obj = {};
-  return arr.reduce(function(item, next) {
+  return arr.reduce(function (item, next) {
     obj[next[key]] ? '' : (obj[next[key]] = true && item.push(next));
     return item;
   }, []);

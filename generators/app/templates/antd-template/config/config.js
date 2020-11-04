@@ -35,7 +35,7 @@ export default defineConfig({
         {
           name: 'login',
           path: '/user/login',
-          component: './User/login',
+          component: './user/login',
         },
       ],
     },

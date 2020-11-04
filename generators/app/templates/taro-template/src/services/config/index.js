@@ -2,6 +2,7 @@
 import Taro from '@tarojs/taro';
 import { HTTP_API, ERROR_STATUS, ROOT_API } from '../const';
 import { logError, logTitle } from './log';
+import { getUserToken } from '../../utils/token';
 
 /**
  *
@@ -89,5 +90,10 @@ export const request = (
       //   err
       // );
     },
+    complete: (res) => {
+      if (res.data.msg === 'token不合法') {
+        getUserToken()
+      }
+    }
   });
 };

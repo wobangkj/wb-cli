@@ -76,9 +76,9 @@ export default {
     },
   ],
   'POST /api/login/account': (req, res) => {
-    const { secret, name, type } = req.body;
+    const { password, username, type } = req.body;
 
-    if (secret === '123456' && name === 'admin') {
+    if (password === '123456' && username === 'admin') {
       res.send({
         status: 200,
         data: {
@@ -90,7 +90,7 @@ export default {
       return;
     }
 
-    if (secret === '123456' && name === 'user') {
+    if (password === '123456' && username === 'user') {
       res.send({
         status: 200,
         data: {
