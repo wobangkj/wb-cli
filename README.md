@@ -1,4 +1,4 @@
-# generator-wb-cli [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-wb-cli [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > 
 
 ## Installation
@@ -32,7 +32,5 @@ MIT © [luoyelusheng]()
 [npm-url]: https://npmjs.org/package/generator-wb-cli
 [travis-image]: https://travis-ci.com/wobangkj/wb-cli.svg?branch=master
 [travis-url]: https://travis-ci.com/wobangkj/wb-cli
-[daviddm-image]: https://david-dm.org/luoyelusheng/generator-wb-cli.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/luoyelusheng/generator-wb-cli
 [coveralls-image]: https://coveralls.io/repos/github/wobangkj/wb-cli/badge.svg
 [coveralls-url]: https://coveralls.io/github/wobangkj/wb-cli
