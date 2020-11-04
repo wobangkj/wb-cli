@@ -30,8 +30,8 @@ MIT © [luoyelusheng]()
 
 [npm-image]: https://badge.fury.io/js/generator-wb-cli.svg
 [npm-url]: https://npmjs.org/package/generator-wb-cli
-[travis-image]: https://travis-ci.com/luoyelusheng/generator-wb-cli.svg?branch=master
-[travis-url]: https://travis-ci.com/luoyelusheng/generator-wb-cli
+[travis-image]: https://travis-ci.com/wobangkj/wb-cli.svg?branch=master
+[travis-url]: https://travis-ci.com/wobangkj/wb-cli
 [daviddm-image]: https://david-dm.org/luoyelusheng/generator-wb-cli.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/luoyelusheng/generator-wb-cli
 [coveralls-image]: https://coveralls.io/repos/luoyelusheng/generator-wb-cli/badge.svg
