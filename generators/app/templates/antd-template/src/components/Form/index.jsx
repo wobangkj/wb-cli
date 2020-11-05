@@ -197,10 +197,10 @@ const UploadAliossFile = (props) => {
    */
   const handleRawImg = (data, isArray) => {
     const res = data.map((item) => {
-      if (item.url) {
-        return item.url;
+      if (item.rawUrl) {
+        return item.rawUrl;
       }
-      return item.rawUrl;
+      return item.url;
     });
     if (isArray) {
       return res.length === 0 ? [] : res;
