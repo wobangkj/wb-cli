@@ -8,7 +8,7 @@ const ssh = new node_ssh();
 const host = '47.100.88.253'; //主机名
 const password = '***';; //密码
 const username = 'root'; //主机账户
-const dir = '/pc'; //项目小程序资源
+const dir = program.d ? '' : '/assets'; //项目资源
 
 /**
  *
