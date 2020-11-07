@@ -1,4 +1,4 @@
-# generator-wb-cli [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-wb-cli [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![david-dm][david-image]][david-url]
 > 
 
 ## Installation
@@ -34,3 +34,5 @@ MIT © [luoyelusheng]()
 [travis-url]: https://travis-ci.com/wobangkj/wb-cli
 [coveralls-image]: https://coveralls.io/repos/github/wobangkj/wb-cli/badge.svg
 [coveralls-url]: https://coveralls.io/github/wobangkj/wb-cli
+[david-image]: https://david-dm.org/wobangkj/wb-cli.svg
+[david-url]: https://david-dm.org/wobangkj/wb-cli
