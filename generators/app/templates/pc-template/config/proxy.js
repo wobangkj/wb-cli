@@ -9,7 +9,7 @@ export default {
   dev: {
     '/api/v1/': {
       target: 'http://gw.yanhudata.com/api/v1/',
-      // changeOrigin: true,
+      changeOrigin: true,
       pathRewrite: {
         '^/api/v1/': '',
       },
