@@ -30,11 +30,7 @@ const handleAdd = async (fields) => {
 
 const handleUpdate = async (fields) => {
   const hide = message.loading('正在修改');
-  const res = await updateRule({
-    name: fields.name,
-    desc: fields.desc,
-    key: fields.key,
-  });
+  const res = await updateRule(fields);
   if (res.status === 200) {
     hide();
     message.success('修改成功');

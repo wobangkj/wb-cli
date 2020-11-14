@@ -11,7 +11,7 @@ import BraftEditor from 'braft-editor';
  * @param {boolean} isFullUrl 是否开启绝对路径 默认关闭
  */
 const Editor = (props) => {
-  const [introduce, setIntroduce] = useState(BraftEditor.createEditorState(props.value));
+  const [introduce, setIntroduce] = useState(props.value ? BraftEditor.createEditorState(props.value) : null);
   const serverURL = `${prefix}upload`; // 上传文件路径
 
   useEffect(() => {
