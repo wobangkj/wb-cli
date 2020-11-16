@@ -75,51 +75,53 @@ connect.then(
               ssh.exec('rm /root/.ssh/id_rsa.pub', []);
             });
         });
-    }
-    // 上传资源文件
-    const failed = [];
-    const successful = [];
-    let filePath = './src/assets/'; // 资源上传
-    if (program.d) {
-      // 部署
-      filePath = './dist';
+    } else {
+      // 上传资源文件
+      const failed = [];
+      const successful = [];
+      let filePath = './src/assets/'; // 资源上传
+      if (program.d) {
+        // 部署
+        filePath = './dist';
+      }
+
+      ssh
+        .putDirectory(filePath, '/usr/share/nginx/reception/' + dir, {
+          recursive: true,
+          concurrency: 10,
+          validate: function (itemPath) {
+            const baseName = path.basename(itemPath);
+            return (
+              baseName.substr(0, 1) !== '.' && baseName !== 'node_modules' // do not allow dot files
+            ); // do not allow node_modules
+          },
+          tick: function (localPath, remotePath, error) {
+            if (error) {
+              failed.push(localPath);
+            } else {
+              successful.push(localPath);
+            }
+          },
+        })
+        .then(function (status) {
+          console.log(
+            status ? '\x1B[32m' : '\x1B[31m%s\x1B[0m',
+            '文件上传',
+            status ? '成功!' : '失败!',
+          );
+          if (status) {
+            successful.forEach((item) => {
+              console.log('\x1B[32m', item);
+            });
+          } else {
+            failed.forEach((item) => {
+              console.log('\n\x1B[31m%s\x1B[0m', item);
+            });
+          }
+          ssh.dispose();
+        });
     }
 
-    ssh
-      .putDirectory(filePath, '/usr/share/nginx/reception/' + dir, {
-        recursive: true,
-        concurrency: 10,
-        validate: function (itemPath) {
-          const baseName = path.basename(itemPath);
-          return (
-            baseName.substr(0, 1) !== '.' && baseName !== 'node_modules' // do not allow dot files
-          ); // do not allow node_modules
-        },
-        tick: function (localPath, remotePath, error) {
-          if (error) {
-            failed.push(localPath);
-          } else {
-            successful.push(localPath);
-          }
-        },
-      })
-      .then(function (status) {
-        console.log(
-          status ? '\x1B[32m' : '\x1B[31m%s\x1B[0m',
-          '文件上传',
-          status ? '成功!' : '失败!',
-        );
-        if (status) {
-          successful.forEach((item) => {
-            console.log('\x1B[32m', item);
-          });
-        } else {
-          failed.forEach((item) => {
-            console.log('\n\x1B[31m%s\x1B[0m', item);
-          });
-        }
-        ssh.dispose();
-      });
   },
   function (error) {
     if (program.pwd) {
