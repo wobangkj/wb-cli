@@ -19,10 +19,12 @@
     }
   },
   "dependencies": {
+    "@videojs/themes": "^1.0.0",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.0.18",
     "@ant-design/pro-layout": "^5.0.8",
     "antd": "^4.4.0",
+    "video.js": "^7.8.4",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",

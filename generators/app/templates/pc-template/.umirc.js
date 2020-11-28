@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   favicon: '/images/favicon.png',
   dynamicImport: {
-    loading: '@/components/PageLoading/index',
+    loading: '@/components/Loading/index',
   },
   externals: {
     react: 'window.React',

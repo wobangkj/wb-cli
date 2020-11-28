@@ -1,6 +1,35 @@
 @import './less/base/m-reset.less';
-.am-tab-bar-bar {
-  box-sizing: content-box !important;
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 40px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 40px);
+
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */
+  @media only screen and (min-device-height: 780px) {
+    .iPhoneX {
+      .am-tab-bar-bar {
+        box-sizing: content-box !important;
+        padding-bottom: calc(constant(safe-area-inset-bottom) + 40px);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 40px);
+      }
+      #root > div {
+        /* Status bar height on iOS 11.0 */
+        padding-top: constant(safe-area-inset-top);
+
+        /* Status bar height on iOS 11+ */
+
+        padding-top: calc(env(safe-area-inset-top) * 2);
+
+        /* Status bar height on iOS 11.0 */
+
+        padding-bottom: constant(safe-area-inset-bottom);
+
+        /* Status bar height on iOS 11+ */
+
+        padding-bottom: calc(env(safe-area-inset-bottom) * 2);
+      }
+    }
+  }
+}
+#root > div {
+  height: 100% !important;
+  min-height: 100% !important;
+  overflow-y: scroll;
 }
