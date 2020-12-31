@@ -11,7 +11,8 @@ export default defineConfig({
     hmr: true,
   },
   // base: '/admin/', // 部署非根目录
-  // publicPath: '/admin/', // 部署非根目录
+  publicPath: './', // 部署非根目录
+  copy: ['config/dev.conf'],
   history: { type: 'hash' },
   locale: {
     // default zh-CN

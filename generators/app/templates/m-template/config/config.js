@@ -1,6 +1,7 @@
 export default {
   // base: '/test/',
-  publicPath: './',
+  publicPath: './', // 部署非根目录
+  copy: ['config/dev.conf'],
   appType: 'h5',
   mobileLayout: true,
   proxy: {

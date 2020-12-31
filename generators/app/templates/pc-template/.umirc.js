@@ -22,6 +22,8 @@ export default defineConfig({
   dynamicImport: {
     loading: '@/components/Loading/index',
   },
+  publicPath: './', // 部署非根目录
+  copy: ['config/dev.conf', 'src/assets'],
   externals: {
     react: 'window.React',
     'react-dom': 'window.ReactDOM',

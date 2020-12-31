@@ -122,6 +122,12 @@ module.exports = class extends Generator {
         { title: this.answers.title }
       );
       this.fs.copyTpl(
+        this.templatePath(`${fileList[this.answers.type]}scripts/assets.js`),
+        this.destinationPath("./scripts/assets.js"),
+        { title: this.answers.title }
+      );
+
+      this.fs.copyTpl(
         this.templatePath(`${fileList[this.answers.type]}config/index.js`),
         this.destinationPath("./config/index.js"),
         { title: this.answers.title }
@@ -131,6 +137,11 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(`${fileList[this.answers.type]}package.json`),
       this.destinationPath("./package.json"),
+      { title: this.answers.title }
+    );
+    this.fs.copyTpl(
+      this.templatePath(`${fileList[this.answers.type]}config/dev.conf`),
+      this.destinationPath("./config/dev.conf"),
       { title: this.answers.title }
     );
   }
