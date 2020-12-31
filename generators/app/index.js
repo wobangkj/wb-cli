@@ -134,6 +134,16 @@ module.exports = class extends Generator {
       );
     }
 
+    if (this.answers.type !== "xcx") {
+      this.fs.copyTpl(
+        this.templatePath(
+          `${fileList[this.answers.type]}.github/workflows/node.js.yml`
+        ),
+        this.destinationPath("./.github/workflows/node.js.yml"),
+        { title: this.answers.title }
+      );
+    }
+
     this.fs.copyTpl(
       this.templatePath(`${fileList[this.answers.type]}package.json`),
       this.destinationPath("./package.json"),
