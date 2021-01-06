@@ -3,7 +3,7 @@ const dpr = window.devicePixelRatio || 1;
 // eslint-disable-next-line no-nested-ternary
 export const DPR = dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1;
 
-const PRO_API = './'; // 生产地址
+let PRO_API = './'; // 生产地址
 
 if (process.env.NODE_ENV === 'development') {
     PRO_API = 'http://47.100.88.253/<%= title %>/'; // 开发地址

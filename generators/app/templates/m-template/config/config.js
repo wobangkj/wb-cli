@@ -15,8 +15,4 @@ export default {
     // @ 默认指到 src 目录
     loading: '@/components/Loading/index',
   },
-  vconsole: {
-    onReady: true,
-  },
-  plugins: ['umijs-plugin-vconsole'],
 };
