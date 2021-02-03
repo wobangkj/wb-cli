@@ -23,8 +23,6 @@ const ROOT_API = 'http://47.100.88.253/api/v1/'; // 开发测试地址
 const HTTP_API = {
   API: `${ROOT_API}base-srv/`,
   QRCODE_PREFIX: `${ROOT_API}base-srv/wx/prcode?url=`,
-  CLIENT_PREFIX: `${ROOT_PRO_API}navigation/client/?`,
-  SETTING_PREFIX: `${ROOT_PRO_API}navigation/setting/?`,
   UPLOAD_PREFIX: `${ROOT_API}base-srv/file/upload`,
   ASSET_PREFIX: `${ROOT_PRO_API}weapp/images/${DPR}x/`, // 多倍图图标
   GENERAL_PREFIX: `${ROOT_PRO_API}weapp/general/`, // 通用图片 即非多倍图图标

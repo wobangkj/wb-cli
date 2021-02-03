@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { List } from 'antd-mobile';
 import { queryList, query } from '@/services/api';
 import LoadMoreListView from '@alitajs/list-view';
+import { GENERAL_PREFIX } from '@/services/index';
 
 import styles from './index.less';
 
@@ -20,7 +21,7 @@ const ListPage = () => {
   const renderRow = (rowData, sectionID, rowID) => (
     <Item
       arrow="horizontal"
-      thumb={<img src="./general/logo.png" alt="" className={styles.listIcon} />}
+      thumb={<img src={`${GENERAL_PREFIX}logo.png`} alt="" className={styles.listIcon} />}
       multipleLine
       onClick={() => { }}
     >

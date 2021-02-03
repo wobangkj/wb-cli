@@ -23,7 +23,7 @@ export default defineConfig({
     loading: '@/components/Loading/index',
   },
   publicPath: './', // 部署非根目录
-  copy: ['config/dev.conf', 'src/assets'],
+  copy: ['config/dev.conf'],
   externals: {
     react: 'window.React',
     'react-dom': 'window.ReactDOM',
