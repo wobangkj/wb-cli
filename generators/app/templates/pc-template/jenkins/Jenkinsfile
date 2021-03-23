@@ -1,0 +1,100 @@
+#!groovy
+
+pipeline {
+	agent {node {label 'master'}}
+
+	environment {
+		PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-v12.16.3/bin"
+		CI = 'true'
+	}
+
+	parameters {
+		choice(
+			choices: 'dev\nprod',
+			description: '请选择部署环境',
+			name: 'deploy_env'
+		)
+		booleanParam(name: 'deploy_test', defaultValue: false, description: '是否开启单元测试')
+	
+		string (name: 'deploy_host', defaultValue: 'auto', description: '部署主机ip地址')
+		
+		string (name: 'deploy_path', defaultValue: '/usr/share/nginx/reception/<%= title %>', description: '部署项目路径')
+
+	}
+
+	stages {
+		stage('Install') {
+            steps {
+                sh """
+				set +x
+                cd $WORKSPACE
+                cnpm install
+				set -x		
+				"""
+            }
+        }
+		stage('Test') {
+            steps {
+				sh """
+				if [ "$deploy_test" = "true" ]
+				then 
+					cd $WORKSPACE
+					npm run test
+				else echo 'no test'
+				fi	
+				"""
+            }
+        }
+		stage ("Build") {
+            steps {
+				sh """
+				set +x
+                cd $WORKSPACE
+                npm run build
+				set -x		
+				"""
+            }
+
+		}
+
+		stage ("Deliver") {
+            steps {
+				sh """
+				if [ "$deploy_host" = "auto" ]; then 
+					if [ ! -d $deploy_path ]; then
+						mkdir $deploy_path
+						echo 'created web dir'
+					fi
+					cd $deploy_path/
+					if [ `ls |wc -w` > 0 ]; then
+						echo 'clean web dir'
+						rm -r *
+					fi
+					cd $WORKSPACE
+					cp -r ./dist/* $deploy_path/
+				else
+					ssh -i /var/jenkins_home/id_rsa root@$deploy_host "bash -s" < ./jenkins/deploy.sh $deploy_path
+					cd $WORKSPACE
+					scp -i /var/jenkins_home/id_rsa -r ./dist/* root@$deploy_host:$deploy_path/
+				fi
+				"""
+            }
+		}
+
+
+
+		stage ("Nginx restart") {
+			steps {
+				sh """
+				if [ "$deploy_host" = "auto" ];
+				then 
+					nsenter --mount=/host/proc/1/ns/mnt sh -c "nginx -s reload"
+				else ssh -i /var/jenkins_home/id_rsa root@$deploy_host "nginx -s reload"
+				fi
+				"""
+			}
+		}
+
+	}
+
+}
