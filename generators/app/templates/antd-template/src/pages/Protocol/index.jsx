@@ -1,8 +1,8 @@
-import { Button, message, Card } from '@/pages/protocol/node_modules/antd';
-import React, { useState, useRef } from '@/pages/protocol/node_modules/react';
+import { Button, message, Card } from 'antd';
+import React, { useState, useRef } from 'react';
 // import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import Editor from '@/pages/protocol/node_modules/@/components/Editor';
-import ProTable from '@/pages/protocol/node_modules/@/pages/curd/node_modules/@ant-design/pro-table';
+import Editor from '@/components/Editor';
+import ProTable from '@ant-design/pro-table';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 import { queryProtocol, updateProtocol, addProtocol } from './service.js';

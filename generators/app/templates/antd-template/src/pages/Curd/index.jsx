@@ -1,8 +1,8 @@
-import { PlusOutlined } from 'ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { Button, Divider, message, Input, Modal } from 'antd';
 import React, { useState, useRef } from 'react';
-import { PageHeaderWrapper } from 'ant-design/pro-layout';
-import ProTable from 'ant-design/pro-table';
+import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import ProTable from '@ant-design/pro-table';
 import { SelectItem, UploadFile } from '@/components/Form/index';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
