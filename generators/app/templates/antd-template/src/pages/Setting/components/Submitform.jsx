@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from '@/pages/setting/components/node_modules/react';
-import { Form, Input, Row, Col, Button } from '@/pages/setting/components/node_modules/antd';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Row, Col, Button } from 'antd';
 
 const FormItem = Form.Item;
 const IntroForm = (props) => {
