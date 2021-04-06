@@ -1,13 +1,14 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Divider, message, Input, Upload, Modal, Select } from 'antd';
-import React, { useState, useRef } from 'react';
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import ProTable from '@ant-design/pro-table';
+import { PlusOutlined } from '@/pages/curd/node_modules/@ant-design/icons';
+import { Button, Divider, message, Input, Modal } from '@/pages/curd/node_modules/antd';
+import React, { useState, useRef } from '@/pages/curd/node_modules/react';
+import { PageHeaderWrapper } from '@/pages/curd/node_modules/@ant-design/pro-layout';
+import ProTable from '@/pages/curd/node_modules/@ant-design/pro-table';
+import { SelectItem, UploadFile } from '@/components/Form/index';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 import { queryRule, updateRule, addRule, removeRule } from './service';
 /**
- * 添加节点
+ * 添加
  * @param fields
  */
 
@@ -24,7 +25,7 @@ const handleAdd = async (fields) => {
   return false;
 };
 /**
- * 更新节点
+ * 更新
  * @param fields
  */
 
@@ -42,7 +43,7 @@ const handleUpdate = async (fields) => {
 };
 
 /**
- *  删除节点
+ *  删除
  * @param selectedRows
  */
 
@@ -69,99 +70,7 @@ const handleRemove = (record, actionRef) => {
   });
 };
 
-const SelectItem = (props) => {
-  const { Option } = Select;
 
-  /**
-   * 下拉切换
-   * @param {*} value
-   */
-  function handleChange(value) {
-    props.form.setFieldsValue({ [props.name]: value });
-  }
-  return (
-    <Select placeholder="请选择" defaultValue={props.value} onChange={handleChange}>
-      {props.data.map((item, index) => (
-        <Option key={item} value={index}>
-          {item}
-        </Option>
-      ))}
-    </Select>
-  );
-};
-
-/**
- * 文件上传
- * @param {*} props
- */
-const UploadFile = (props) => {
-  let files = [];
-  if (props.fileList) {
-    if (typeof props.fileList === 'string') {
-      // 逗号分隔文件列表
-      files = props.fileList.split(',').map((item, index) => ({
-        // url: `/api/v1/${item}`,
-        url: item,
-        rawUrl: item,
-        uid: index,
-      }));
-    } else if (Array.isArray(props.fileList)) {
-      // 数组文件列表
-      files = props.fileList.map((item, index) => {
-        let { url } = item;
-        if (item.response && item.response.data.value) {
-          url = `${item.response.data.value}`;
-        }
-        return {
-          // url: `/api/v1/${url}`,
-          url,
-          rawUrl: url,
-          uid: index,
-        };
-      });
-    }
-  }
-
-  const [fileList, setFileList] = useState(files);
-  /**
-   * 图片上传钩子
-   *
-   * @memberof ModalForm
-   */
-  const beforeUpload = (file) => {
-    const isLt2M = file.size / 1024 / 1024 < 3;
-    if (!isLt2M) {
-      message.error('图片大小不能超过2MB');
-    }
-    return isLt2M;
-  };
-
-  /**
-   * 文件处理
-   * @param {*} param0
-   */
-  // eslint-disable-next-line no-shadow
-  const handleChange = ({ fileList }) => {
-    setFileList(fileList);
-    // 设置form值
-    props.form.setFieldsValue({ [props.name]: fileList });
-  };
-
-  return (
-    <Upload
-      onChange={handleChange}
-      fileList={fileList}
-      listType="picture-card"
-      beforeUpload={beforeUpload}
-      action="/api/v1/file/upload"
-    >
-      <div>
-        <PlusOutlined />
-        上传
-      </div>
-    </Upload>
-  );
-};
 
 const TableList = () => {
   const [createModalVisible, handleModalVisible] = useState(false);
@@ -213,7 +122,7 @@ const TableList = () => {
         <SelectItem
           form={form}
           name="status"
-          defaultValue={record.value}
+          value={record.value}
           data={['已开具', '已作废']}
         />
       ),

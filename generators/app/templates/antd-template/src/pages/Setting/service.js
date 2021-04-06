@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@/pages/setting/node_modules/@/utils/request';
 
 export async function editPass(data) {
   return request('admin/edit', {

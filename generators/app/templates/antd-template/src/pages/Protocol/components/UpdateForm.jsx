@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal } from 'antd';
+import React from '@/pages/protocol/components/node_modules/react';
+import { Modal } from '@/pages/protocol/components/node_modules/antd';
 
 const UpdateForm = (props) => {
   const { modalVisible, onCancel } = props;

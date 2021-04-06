@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal } from 'antd';
+import React from '@/pages/curd/components/node_modules/react';
+import { Modal } from '@/pages/curd/components/node_modules/antd';
 
 const CreateForm = (props) => {
   const { modalVisible, onCancel } = props;

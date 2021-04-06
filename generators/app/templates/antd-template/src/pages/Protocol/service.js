@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@/pages/protocol/node_modules/@/utils/request';
 
 export async function queryProtocol(params) {
   return request('admin/protocol/list', {

@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-param-reassign */
-import { Card, Form, message } from 'antd';
-import React from 'react';
+import { Card, Form, message } from '@/pages/setting/node_modules/antd';
+import React from '@/pages/setting/node_modules/react';
 import Submitform from './components/Submitform';
 import { editPass } from './service';
 
