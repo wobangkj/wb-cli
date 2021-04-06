@@ -1,4 +1,4 @@
-import request from '@/pages/curd/node_modules/@/utils/request';
+import request from '@/utils/request';
 
 export async function queryRule(params) {
   return request('rule', {
