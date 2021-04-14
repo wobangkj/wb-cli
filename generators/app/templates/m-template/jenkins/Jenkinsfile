@@ -73,9 +73,9 @@ pipeline {
 					cd $WORKSPACE
 					cp -r ./dist/* $deploy_path/
 				else
-					ssh -i /var/jenkins_home/id_rsa root@$deploy_host "bash -s" < ./jenkins/deploy.sh $deploy_path
+					ssh -i /var/jenkins_home/id_rsa -o "StrictHostKeyChecking no" root@$deploy_host "bash -s" < ./jenkins/deploy.sh $deploy_path
 					cd $WORKSPACE
-					scp -i /var/jenkins_home/id_rsa -r ./dist/* root@$deploy_host:$deploy_path/
+					scp -i /var/jenkins_home/id_rsa -o "StrictHostKeyChecking no" -r ./dist/* root@$deploy_host:$deploy_path/
 				fi
 				"""
             }
@@ -89,7 +89,7 @@ pipeline {
 				if [ "$deploy_host" = "auto" ];
 				then 
 					nsenter --mount=/host/proc/1/ns/mnt sh -c "nginx -s reload"
-				else ssh -i /var/jenkins_home/id_rsa root@$deploy_host "nginx -s reload"
+				else ssh -i /var/jenkins_home/id_rsa -o "StrictHostKeyChecking no" root@$deploy_host "nginx -s reload"
 				fi
 				"""
 			}
