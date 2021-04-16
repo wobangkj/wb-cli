@@ -1,6 +1,6 @@
 {
   "name": "generator-wb-cli",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "homepage": "",
   "author": {
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
-    "yeoman-generator": "^5.2.0",
+    "yeoman-generator": "^4.12.0",
     "yosay": "^2.0.1"
   },
   "jest": {
