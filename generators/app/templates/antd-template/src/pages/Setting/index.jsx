@@ -3,7 +3,7 @@
 import { Card, Form, message } from 'antd';
 import React from 'react';
 import Submitform from './components/Submitform';
-import { editPass } from './service';
+import { updatePass } from './service';
 
 const TableList = () => {
   const [form] = Form.useForm();

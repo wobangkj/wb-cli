@@ -6,15 +6,15 @@ import ProTable from '@ant-design/pro-table';
 import { SelectItem, UploadFile } from '@/components/Form/index';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
-import { queryRule, updateRule, addRule, removeRule } from './service';
+import { searchRule, updateRule, createRule, removeRule } from './service';
+
 /**
  * 添加
  * @param fields
  */
-
 const handleAdd = async (fields) => {
   const hide = message.loading('正在添加');
-  const res = await addRule(fields);
+  const res = await createRule(fields);
   if (res.status === 200) {
     hide();
     message.success('添加成功');
@@ -24,11 +24,11 @@ const handleAdd = async (fields) => {
   message.error('添加失败请重试！');
   return false;
 };
+
 /**
  * 更新
  * @param fields
  */
-
 const handleUpdate = async (fields) => {
   const hide = message.loading('正在修改');
   const res = await updateRule(fields);
@@ -46,7 +46,6 @@ const handleUpdate = async (fields) => {
  *  删除
  * @param selectedRows
  */
-
 const handleRemove = (record, actionRef) => {
   Modal.confirm({
     title: '您确定执行此操作吗',
@@ -75,7 +74,7 @@ const handleRemove = (record, actionRef) => {
 const TableList = () => {
   const [createModalVisible, handleModalVisible] = useState(false);
   const [updateModalVisible, handleUpdateModalVisible] = useState(false);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({}); // 表单record记录存储
   const actionRef = useRef();
   const columns = [
     {
@@ -215,11 +214,11 @@ const TableList = () => {
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={() => [
-          <Button type="primary" onClick={() => handleModalVisible(true)}>
+          <Button key='1' type="primary" onClick={() => handleModalVisible(true)}>
             <PlusOutlined /> 新建
           </Button>,
         ]}
-        request={(params) => queryRule(params)}
+        request={(params) => searchRule(params)}
         columns={columns}
       />
       <CreateForm onCancel={() => handleModalVisible(false)} modalVisible={createModalVisible}>

@@ -1,25 +1,26 @@
 import request from '@/utils/request';
 
-export async function queryRule(params) {
+export async function searchRule(params) {
   return request('rule', {
     params,
   });
 }
-export async function removeRule(params) {
-  return request('rule', {
-    method: 'POST',
-    data: { ...params, method: 'delete' },
+
+export async function removeRule(id) {
+  return request(`rule/${id}`, {
+    method: 'DELETE',
   });
 }
-export async function addRule(params) {
+
+export async function createRule(data) {
   return request('rule', {
     method: 'POST',
-    data: { ...params, method: 'post' },
+    data,
   });
 }
-export async function updateRule(params) {
+export async function updateRule(data) {
   return request('rule', {
-    method: 'POST',
-    data: { ...params, method: 'update' },
+    method: 'PUT',
+    data,
   });
 }

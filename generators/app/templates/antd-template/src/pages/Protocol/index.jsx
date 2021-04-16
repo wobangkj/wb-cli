@@ -5,7 +5,7 @@ import Editor from '@/components/Editor';
 import ProTable from '@ant-design/pro-table';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
-import { queryProtocol, updateProtocol, addProtocol } from './service.js';
+import { searchProtocol, updateProtocol, createProtocol } from './service.js';
 
 /**
  *
@@ -37,7 +37,7 @@ const handleAdd = async (fields) => {
     fields.image = handleRawImg(fields.image);
   }
 
-  const res = await addProtocol(fields);
+  const res = await createProtocol(fields);
   if (res.status === 200) {
     hide();
     message.success('添加成功');
@@ -127,7 +127,7 @@ const TableList = () => {
         search={false}
         toolBarRender={() => []}
         request={(params) => {
-          return queryProtocol(params);
+          return searchProtocol(params);
         }}
         columns={columns}
       />
