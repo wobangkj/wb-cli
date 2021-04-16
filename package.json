@@ -81,7 +81,7 @@
   "scripts": {
     "pretest": "eslint .",
     "test": "jest",
-    "coveralls": "jest --coverage && coveralls < ./coverage/lcov.info"
+    "coveralls": "jest --coverage && coveralls < ./coverage/lcov.info --verbose"
   },
   "repository": "luoyelusheng/generator-wb-cli",
   "license": "MIT"
