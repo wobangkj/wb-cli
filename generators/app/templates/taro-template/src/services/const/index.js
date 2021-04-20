@@ -15,8 +15,8 @@ const HIDE_BUSINESS_STATUS = [200, 204];
 // 允许上传日志状态码
 // export const ERROR_STATUS = [222, 500];
 
-const ROOT_PRO_API = 'http://47.100.88.253/'; // 生产地址
-const ROOT_API = 'http://47.100.88.253/api/v1/'; // 开发测试地址
+const ROOT_PRO_API = 'http://121.41.92.23/'; // 生产地址
+const ROOT_API = 'http://121.41.92.23/api/v1/'; // 开发测试地址
 // export const ROOT_API = 'https://shop.wobangkj.com/api/v1/'; // 开发测试地址
 // export const ROOT_API = 'http://192.168.31.174:8013/'; // 开发测试地址
 

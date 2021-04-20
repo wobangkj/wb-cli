@@ -5,7 +5,7 @@ const { NodeSSH } = require('node-ssh');
 program.option('-p, --pwd').option('-d, --d').parse(process.argv);
 const ssh = new NodeSSH();
 
-const host = '47.100.88.253'; //主机名
+const host = '121.41.92.23'; //主机名
 const password = '***'; //密码
 const username = 'root'; //主机账户
 const dir = program.d ? '/admin' : '/assets'; //项目资源

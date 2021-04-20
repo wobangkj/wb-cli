@@ -5,8 +5,8 @@ const node_ssh = require('node-ssh');
 program.option('-p, --pwd').parse(process.argv);
 const ssh = new node_ssh();
 
-const host = '47.100.88.253'; //主机名
-const password = '***';; //密码
+const host = '121.41.92.23'; //主机名
+const password = '***'; //密码
 const username = 'root'; //主机账户
 const dir = program.d ? '' : '/assets'; //项目资源
 
@@ -38,37 +38,44 @@ if (program.pwd) {
   });
 }
 connect.then(
-  function () {
+  function() {
     if (program.pwd) {
       // 通过密码登录默认上传本地公钥到新服务器
       ssh
-        .putFile(os.userInfo().homedir + '/.ssh/id_rsa.pub', '/root/.ssh/id_rsa.pub')
+        .putFile(
+          os.userInfo().homedir + '/.ssh/id_rsa.pub',
+          '/root/.ssh/id_rsa.pub',
+        )
         .then(
-          function () {
+          function() {
             console.log('\n\x1B[32m', '上传秘钥/root/.ssh/成功');
           },
-          function (error) {
+          function(error) {
             console.log(
               '\n\x1B[31m%s\x1B[0m',
               '上传秘钥/root/.ssh/',
               error,
-              os.userInfo().homedir + '/.ssh/id_rsa'
+              os.userInfo().homedir + '/.ssh/id_rsa',
             );
-          }
+          },
         )
         .then(() => {
           //追加id_rsa.pub公钥到authorized_keys
           ssh
             .exec('cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys')
             .then(
-              function () {
+              function() {
                 console.log('\x1B[32m', 'authorized_keys配置完成');
                 console.log('\n');
               },
               error => {
-                console.log('\x1B[31m%s\x1B[0m', 'authorized_keys配置失败', error);
+                console.log(
+                  '\x1B[31m%s\x1B[0m',
+                  'authorized_keys配置失败',
+                  error,
+                );
                 console.log('\n');
-              }
+              },
             )
             .then(() => {
               //删除id_rsa.pub
@@ -83,13 +90,13 @@ connect.then(
         .putDirectory('./src/assets/', '/usr/share/nginx/reception/' + dir, {
           recursive: true,
           concurrency: 10,
-          validate: function (itemPath) {
+          validate: function(itemPath) {
             const baseName = path.basename(itemPath);
             return (
               baseName.substr(0, 1) !== '.' && baseName !== 'node_modules' // do not allow dot files
             ); // do not allow node_modules
           },
-          tick: function (localPath, remotePath, error) {
+          tick: function(localPath, remotePath, error) {
             if (error) {
               failed.push(localPath);
             } else {
@@ -97,11 +104,11 @@ connect.then(
             }
           },
         })
-        .then(function (status) {
+        .then(function(status) {
           console.log(
             status ? '\x1B[32m' : '\x1B[31m%s\x1B[0m',
             '文件上传',
-            status ? '成功!' : '失败!'
+            status ? '成功!' : '失败!',
           );
           if (status) {
             successful.forEach(item => {
@@ -115,16 +122,15 @@ connect.then(
           ssh.dispose();
         });
     }
-
   },
-  function (error) {
+  function(error) {
     if (program.pwd) {
       console.error(
         '\x1B[31m%s\x1B[0m',
-        '密码或账户错误,账户名：' + username + '，密码:' + password
+        '密码或账户错误,账户名：' + username + '，密码:' + password,
       );
     } else {
       console.error('\x1B[31m%s\x1B[0m', error);
     }
-  }
+  },
 );

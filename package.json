@@ -1,6 +1,6 @@
 {
   "name": "generator-wb-cli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "homepage": "",
   "author": {
@@ -81,7 +81,8 @@
   "scripts": {
     "pretest": "eslint .",
     "test": "jest",
-    "coveralls": "jest --coverage && coveralls < ./coverage/lcov.info --verbose"
+    "coverage": "jest --no-cache --coverage",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls --verbose"
   },
   "repository": "luoyelusheng/generator-wb-cli",
   "license": "MIT"
